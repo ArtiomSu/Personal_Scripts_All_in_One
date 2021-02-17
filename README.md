@@ -41,6 +41,19 @@ For now this only has the intro script that I use as for my youtube channel. It 
 ## android_screen_view.sh
 This lets you stream your android screen to the pc without any bs.
 
+## axel_with_options.sh
+This script uses axel to download files
+This script also chooses a random user agent as some websites might block unknown
+
+
+Usage:
+axel_with_options.sh https://your_url_to_file.com optional_num_connections
+This example will download a file with 20 connections
+axel_with_options.sh http://speedtest.ftp.otenet.gr/files/test100Mb.db 20
+
+
+Use a lower number of connections for faster websites ( 10 is the default if you dont specify anything ). And for slow ass websites I find that 30 works well
+
 ## cpu-fast cpu-slow
 These change the cpu governor and clocks. slow I use when my laptop is disconnected from the wall.
 
