@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+Green='\033[0;32m'
+NC='\033[0m'
+Purple='\033[0;35m'
+LightBlue='\033[1;34m'
+
 random_ending(){
 	chars=abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ
 	for i in {1..8} ; do
@@ -29,18 +34,20 @@ do
 	then
 		for file in "$entry"/*
 		do
-			if [ -f $file ];
+			#echo -e "$Green file is $file $NC"
+			if [ -f "$file" ];
 			then
-				file_name="$(basename $file)"
+				file_name="$(basename "$file")"
+				#echo -e "$Purple file_name is $file_name $NC"
 				if [ -f "$path/$file_name" ];
 				then
 					echo "file exists need to rename"
 					echo "moving $path/${file_name}.rename"
-					mv $file $path/${file_name}.rename$(random_ending)
+					mv "$file" "$path/${file_name}.rename$(random_ending)"
 					echo ""
 				else
-					echo "moving $path/$file_name"
-					mv $file $path/${file_name}
+					echo -e "$LightBlue moving $path/$file_name $NC"
+					mv "$file" "$path/${file_name}"
 					echo ""
 				fi
 			fi

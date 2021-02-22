@@ -92,13 +92,17 @@ use_sleep=0
 
 function my_sleep(){
 	if [[ $use_sleep -eq 1 ]];then
-		rnum=$((RANDOM%10000+1))
-		num=$(echo "scale=2; $rnum/150000" | bc)
-		num=0$num
-		if [[ $num -eq "00" ]];then
-			num=0.01
-		fi	
-		sleep $num
+		if [[ ! -z $1 ]]; then
+			sleep $1
+		else
+			rnum=$((RANDOM%10000+1))
+			num=$(echo "scale=2; $rnum/150000" | bc)
+			num=0$num
+			if [[ $num -eq "00" ]];then
+				num=0.01
+			fi	
+			sleep $num
+		fi
 	fi
 }
 
@@ -227,7 +231,7 @@ function box_and_pipes(){
 							print -Pn "%F{$website_colour}  https://artiomsu.github.io/%F{$background_colour}"
 							stop_end=1
 							((i = i + 29))
-							sleep 0.5
+							my_sleep 0.5
 						else
 							echo -en " "
 						fi
@@ -238,7 +242,7 @@ function box_and_pipes(){
 							print -Pn "%F{$github_colour}  https://github.com/ArtiomSu/%F{$background_colour}"
 							stop_end=1
 							((i = i + 30))
-							sleep 0.5
+							my_sleep 0.5
 						else
 							echo -en " "
 						fi		
@@ -249,7 +253,7 @@ function box_and_pipes(){
 							print -Pn "%F{$paypal_colour}  https://www.paypal.com/paypalme/artiomSudo%F{$background_colour}"
 							stop_end=1
 							((i = i + 44))
-							sleep 0.5
+							my_sleep 0.5
 						else
 							echo -en " "
 						fi	
@@ -261,7 +265,7 @@ function box_and_pipes(){
 							print -Pn "%F{$video_title_colour}  Configuring Rofi%F{$background_colour}"
 							stop_end=1
 							((i = i + 18))
-							sleep 0.5
+							my_sleep 0.5
 						else
 							echo -en " "
 						fi
@@ -274,7 +278,7 @@ function box_and_pipes(){
 							print -Pn "%F{$music_colour}  Chill. by Sakura Hz%F{$background_colour}"
 							stop_end=1
 							((i = i + 21))
-							sleep 0.5
+							my_sleep 0.5
 						else
 							echo -en " "
 						fi					
