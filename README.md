@@ -38,6 +38,17 @@ This outputs the current song playing if there is any and its nicely formatted.
 ## terminal_heat_sink
 For now this only has the intro script that I use as for my youtube channel. It just draws some fancy heat sink and plays music.
 
+## terminal_helpers
+These scripts are fairly generic.
+##### bash_colours.sh
+Designed to be sourced by other scripts, it has the escape codes for different colours.
+##### cs.sh
+Shortcut script for different directories. Allows saving the current path and calling it later. Made a video about this on youtube.
+##### issue_text.sh
+This generates output to be used for /etc/issue to customise the tty prompt login. This is handy if you use startx as it looks nice before entering the password and login.
+##### mykill.sh
+This is a simple script that loops and attempts to kill a processs. I find that some processes don't die after a single kill command so this script takes care of that.
+
 ## android_screen_view.sh
 This lets you stream your android screen to the pc without any bs.
 
